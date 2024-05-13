@@ -1,0 +1,124 @@
+.filtersBar {
+    max-width: 306px;
+    padding-right: 27px;
+    border-right: 1px solid #dddddd;
+    margin-right: 12px;    
+    
+    .categories,
+    .foogPrefer,
+    .rating,
+    .weight {
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-block: 25px;
+
+            button {
+                background-color: #F9F8F6;
+                padding: 4px;
+                border-radius: 50%;
+                width: 26px;
+                height: 26px;
+                
+                svg {transform: rotate(180deg);}
+            }
+        }
+    }
+
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .clearBtn {
+            background-color: transparent;
+            color: #0da487;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    }
+
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        padding-top: 16px;
+
+        .filter {
+            background-color: #F9F8F6;
+            padding: 9px 11px;
+            color: #777777;
+            display: flex;
+            align-items: center;
+            column-gap: 12px;
+            border-radius: 4px;
+            font-size: 14px;
+
+            button {
+                cursor: pointer;
+                background-color: transparent;
+                padding: 4px;       
+            }
+        }
+    }
+
+    .title {
+        font-weight: 600;
+        font-size: 18px;
+        color: #222222;
+        border-bottom: 1px solid #0da487;
+    }
+
+    .categories {
+        &Filter {
+            .searchBar {
+                display: flex;
+                align-items: center; 
+                border: 1px solid #CED4DA;   
+                border-radius: 4px;
+                margin-bottom: 31px;
+                padding: 8px 10px;
+
+                .searchInput {
+                    color: #4A5568;
+                    flex-grow: 1;
+                    border-right: 1px solid #CED4DA;
+                    margin-right: 19px;
+                    padding-right: 5px;
+                }
+            }
+
+        }
+    }
+
+    .checkboxes {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            column-gap: 6px;
+
+            .checkboxInput {
+                width: 21px;
+                height: 21px;
+                accent-color: #0da487;
+            }
+
+            span {
+                &:nth-child(2) {
+                    flex-grow: 1;
+                }
+
+                &:nth-child(3) {
+                    color: #777777;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

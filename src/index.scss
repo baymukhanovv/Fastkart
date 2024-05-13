@@ -1,0 +1,28 @@
+@import url(./normalize.scss);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Public Sans';
+}
+
+.container {
+    max-width: 1600px;
+    margin-inline: auto;
+}
+
+.app-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 1600px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+$turquoise-green-color: #0DA487;
+$light-gray: #ECECEC;
+$accent-color: #FFA53B;

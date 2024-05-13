@@ -1,0 +1,103 @@
+.productCard {
+    background-color: #f8f8f8;
+    padding: 34px 14px 14px;
+    max-width: 292px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .productImg {
+        margin-inline: auto;
+    }
+
+    .categoryName {
+        font-size: 13px;
+        color: #50607c;
+        margin-block: 21px 8px;
+    }
+
+    .productName {
+        font-size: 16px;
+        font-weight: 500;
+        color: #222;
+        line-height: 24px;
+        flex-grow: 1;
+    }
+
+    .productRating {
+        margin-block: 10px;
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+
+        .rating {
+            font-size: 12px;
+            color: #4a5568;
+        }
+    }
+
+    .productWeight {
+        color: #777;
+        font-size: 13px;
+    }
+
+    .productPrice {
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+        margin-block: 6px 10px;
+
+        .priceWithDiscount {
+            color: #0da487;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .priceWithoutDiscount {
+            color: #777;
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: line-through;
+        }
+    }
+
+    .addBtn {
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        border-radius: 50px;
+        background-color: #fff;
+        cursor: pointer;
+        transition: .2s;
+
+        &:hover {
+            background-color: #d5d5d5;
+
+            span.plus {
+                background-color: #fff;
+            }
+        }
+        
+        span {
+            &:not(.plus) {
+                text-align: center;
+                flex-grow: 1;
+                font-weight: 14;
+                font-weight: 500;
+                color: #4a5568;
+            }
+
+            &.plus {
+                border-radius: 50%;
+                background-color: #f8f8f8;
+                padding: 12px;
+                color: #0da487;
+                width: 37px;
+                height: 37px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
