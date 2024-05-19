@@ -2,13 +2,28 @@ import React from 'react'
 import styles from './ProductsList.module.scss'
 import ProductCard from './ProductCard/ProductCard'
 
-const ProductsList = ({products, searchValue}) => {
+const ProductsList = ({
+    products, 
+    searchValue, 
+    selectedCategories,
+    selectedPreferences, 
+    selectedRating,
+    selectedWeights
+}) => {
+    const filteredProducts = searchValue || selectedCategories 
+            ? products
+                .filter(product => product.productName.toLowerCase().includes(searchValue.toLowerCase()))
+                .filter(product => selectedCategories.length !== 0 ? selectedCategories.includes(product.productCategory) : product)
+                .filter(product => selectedPreferences.length !== 0 ? selectedPreferences.includes(product.productPreference) : product)
+                .filter(product => selectedRating.length !== 0 ? selectedRating.includes(product.productRating) : product)
+                .filter(product => selectedWeights.length !== 0 ? selectedWeights.some(obj => obj.from < product.productWeight && product.productWeight <= obj.to) : product)
+            : products
 
     return (
         <div className={styles.productsList}>
             <div className='container'>
                 <div className={styles.wrapper}>
-                    {(searchValue ? products.filter(product => product.productName.toLowerCase().includes(searchValue.toLowerCase())) : products).map(product => (
+                    {filteredProducts.map(product => (
                         <ProductCard 
                             key={product.id}
                             productName={product.productName}

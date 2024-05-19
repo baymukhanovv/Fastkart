@@ -1,26 +1,36 @@
 import React from 'react'
 import styles from './FiltersBar.module.scss'
 
-const FiltersBar = ({getSearchValue, searchValue}) => {
+const FiltersBar = ({
+    getSearchValue, 
+    searchValue, 
+    filteredByCategories, 
+    products, 
+    selectedCategories,
+    filteredByPreferences,
+    filteredByRating,
+    filteredByWeights,
+    setSelectedCategories
+}) => {
+    const filteredWeights = [
+        {from: 50, to: 300},
+        {from: 300, to: 700},
+        {from: 700, to: 1000},
+    ]
+
     return (
         <div className={styles.filtersBar}>
                 <div className={styles.header}>
                     <h4 className={styles.title}>Filters</h4>
-                    <button className={styles.clearBtn}>Clear All</button>
+                    <button onClick={() => setSelectedCategories([])} className={styles.clearBtn}>Clear All</button>
                 </div>
                 <div className={styles.filters}>
-                    <div className={styles.filter}>
-                        <span>Vegetable</span>
-                        <button><img src="../../../assets/icons/cross-icon.svg" alt="" /></button>
-                    </div>
-                    <div className={styles.filter}>
-                        <span>Snacks</span>
-                        <button><img src="../../../assets/icons/cross-icon.svg" alt="" /></button>
-                    </div>
-                    <div className={styles.filter}>
-                        <span>Cookies</span>
-                        <button><img src="../../../assets/icons/cross-icon.svg" alt="" /></button>
-                    </div>
+                    {selectedCategories.map(category => 
+                        <div className={styles.filter}>
+                            <span>{category}</span>
+                            <button onClick={() => filteredByCategories(category)}><img src="../../../assets/icons/cross-icon.svg" alt="" /></button>
+                        </div>
+                    )}
                 </div>
                 <div className={styles.categories}>
                     <div className={styles.wrapper}>
@@ -40,21 +50,13 @@ const FiltersBar = ({getSearchValue, searchValue}) => {
                             </svg>
                         </div>
                         <div className={styles.checkboxes}>
-                            <div className={styles.checkbox}>
-                                <input type="checkbox" className={styles.checkboxInput}/>
-                                <span>Vegetables</span>
-                                <span>(15)</span>
-                            </div>
-                            <div className={styles.checkbox}>
-                                <input type="checkbox" className={styles.checkboxInput}/>
-                                <span>Cookies</span>
-                                <span>(10)</span>
-                            </div>
-                            <div className={styles.checkbox}>
-                                <input type="checkbox" className={styles.checkboxInput}/>
-                                <span>Snacks</span>
-                                <span>(8)</span>
-                            </div>
+                            {['Vegetable', 'Cookies', 'Snacks', 'Bread'].map(category => 
+                                <div className={styles.checkbox} key={category}>
+                                    <input checked={selectedCategories.includes(category)} onChange={() => filteredByCategories(category)} type="checkbox" className={styles.checkboxInput}/>
+                                    <span>{category}</span>
+                                    <span>({products.filter(product => product.productCategory === category).length})</span>
+                                </div>
+                            )}
                         </div>
                         <div className={styles.foodPrefer}>
                             <div className={styles.wrapper}>
@@ -66,16 +68,13 @@ const FiltersBar = ({getSearchValue, searchValue}) => {
                                 </button>
                             </div>  
                             <div className={styles.checkboxes}>
-                                <div className={styles.checkbox}>
-                                    <input type="checkbox" className={styles.checkboxInput}/>
-                                    <span>Vegetarian</span>
-                                    <span>(8)</span>
-                                </div>
-                                <div className={styles.checkbox}>
-                                    <input type="checkbox" className={styles.checkboxInput}/>
-                                    <span>Non Vegetarian</span>
-                                    <span>(9)</span>
-                                </div>
+                                {['Vegetarian', 'Non Vegetarian'].map(preference => 
+                                    <div className={styles.checkbox} key={preference}>
+                                        <input onChange={() => filteredByPreferences(preference)} type="checkbox" className={styles.checkboxInput}/>
+                                        <span>{preference}</span>
+                                        <span>({products.filter(product => product.productPreference === preference).length})</span>
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <div className={styles.rating}>
@@ -88,41 +87,15 @@ const FiltersBar = ({getSearchValue, searchValue}) => {
                                 </button>
                             </div>
                             <div className={styles.checkboxes}>
-                                <div className={styles.checkbox}>
-                                    <input type="checkbox" className={styles.checkboxInput}/>
-                                    <span>
-                                        <img src="../../../assets/ratings/5 Star.png" alt="" />
-                                    </span>
-                                    <span>(5 Star)</span>
-                                </div>
-                                <div className={styles.checkbox}>
-                                    <input type="checkbox" className={styles.checkboxInput}/>
-                                    <span>
-                                        <img src="../../../assets/ratings/4 Star.png" alt="" />
-                                    </span>
-                                    <span>(4 Star)</span>
-                                </div>
-                                <div className={styles.checkbox}>
-                                    <input type="checkbox" className={styles.checkboxInput}/>
-                                    <span>
-                                        <img src="../../../assets/ratings/3 Star.png" alt="" />
-                                    </span>
-                                    <span>(3 Star)</span>
-                                </div>
-                                <div className={styles.checkbox}>
-                                    <input type="checkbox" className={styles.checkboxInput}/>
-                                    <span>
-                                        <img src="../../../assets/ratings/2 Star.png" alt="" />
-                                    </span>
-                                    <span>(2 Star)</span>
-                                </div>
-                                <div className={styles.checkbox}>
-                                    <input type="checkbox" className={styles.checkboxInput}/>
-                                    <span>
-                                        <img src="../../../assets/ratings/1 Star.png" alt="" />
-                                    </span>
-                                    <span>(1 Star)</span>
-                                </div>
+                                {[5,4,3,2,1].map(rating => 
+                                    <div className={styles.checkbox} key={rating}>
+                                        <input onChange={() => filteredByRating(rating)} type="checkbox" className={styles.checkboxInput}/>
+                                        <span>
+                                            <img src={`../../../assets/ratings/${rating} Star.png`} alt="" />
+                                        </span>
+                                        <span>({rating} Star)</span>
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <div className={styles.weight}>
@@ -135,21 +108,13 @@ const FiltersBar = ({getSearchValue, searchValue}) => {
                                 </button>
                             </div>
                             <div className={styles.checkboxes}>
-                                <div className={styles.checkbox}>
-                                    <input type="checkbox" className={styles.checkboxInput}/>
-                                    <span>50 to 300g</span>
-                                    <span>(7)</span>
-                                </div>
-                                <div className={styles.checkbox}>
-                                    <input type="checkbox" className={styles.checkboxInput}/>
-                                    <span>300 to 700g</span>
-                                    <span>(5)</span>
-                                </div>
-                                <div className={styles.checkbox}>
-                                    <input type="checkbox" className={styles.checkboxInput}/>
-                                    <span>700 to 1kg</span>
-                                    <span>(9)</span>
-                                </div>
+                                {filteredWeights.map(weight => 
+                                    <div className={styles.checkbox} key={weight.from}>
+                                        <input onChange={() => filteredByWeights(weight)} type="checkbox" className={styles.checkboxInput}/>
+                                        <span>{weight.from} to {weight.to}g</span>
+                                        <span>(7)</span>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

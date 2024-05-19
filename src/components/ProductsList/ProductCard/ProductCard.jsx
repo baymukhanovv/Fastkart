@@ -18,7 +18,7 @@ const ProductCard = ({
                 <img src={`../../../../assets/ratings/${productRating} Star.png`} alt="" />
                 <span className={styles.rating}>({productRating}.0)</span>    
             </div>
-            <div className={styles.productWeight}>{productWeight}</div>
+            <div className={styles.productWeight}>{productWeight}g</div>
             <div className={styles.productPrice}>
                 <span className={styles.priceWithDiscount}>${productPriceWithDiscount}</span>
                 <span className={styles.priceWithoutDiscount}>${productPriceWithoutDiscount}</span>
