@@ -1,22 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './FiltersBar.module.scss'
+import AppContext from '../../context'
 
 const FiltersBar = ({
-    getSearchValue, 
-    searchValue, 
-    filteredByCategories, 
-    products, 
-    selectedCategories,
+    getSearchValue,  
+    setSelectedCategories,
+    filteredByCategories,
     filteredByPreferences,
     filteredByRating,
-    filteredByWeights,
-    setSelectedCategories
+    filteredByWeights
 }) => {
     const filteredWeights = [
         {from: 50, to: 300},
         {from: 300, to: 700},
         {from: 700, to: 1000},
     ]
+    const {products, searchValue, selectedCategories} = useContext(AppContext)
 
     return (
         <div className={styles.filtersBar}>
@@ -112,7 +111,7 @@ const FiltersBar = ({
                                     <div className={styles.checkbox} key={weight.from}>
                                         <input onChange={() => filteredByWeights(weight)} type="checkbox" className={styles.checkboxInput}/>
                                         <span>{weight.from} to {weight.to}g</span>
-                                        <span>(7)</span>
+                                        <span>({products.filter(product => weight.from < product.productWeight && product.productWeight <= weight.to).length})</span>
                                     </div>
                                 )}
                             </div>

@@ -1,15 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './ProductsList.module.scss'
 import ProductCard from './ProductCard/ProductCard'
+import AppContext from '../../context'
 
-const ProductsList = ({
-    products, 
-    searchValue, 
-    selectedCategories,
-    selectedPreferences, 
-    selectedRating,
-    selectedWeights
-}) => {
+
+const ProductsList = () => {
+    const {products, searchValue, selectedCategories, selectedPreferences, selectedRating, selectedWeights} = useContext(AppContext)
+
     const filteredProducts = searchValue || selectedCategories 
             ? products
                 .filter(product => product.productName.toLowerCase().includes(searchValue.toLowerCase()))

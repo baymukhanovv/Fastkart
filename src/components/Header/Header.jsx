@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Header.module.scss'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -50,9 +51,9 @@ const Header = () => {
           <div className={styles.headerMiddle}>
             <div className='container'>
               <div className={styles.wrapper}>
-                <a href="/logo" className="logo">
+                <Link to='/'>
                   <img src="../assets/logo.png" alt="Fastkart" />
-                </a>
+                </Link>
                 <div className={styles.getInfo}>
                   <div className={styles.selectLocation + ' ' + styles.dropdown}>
                     <div className={styles.locationButton}>
@@ -85,23 +86,23 @@ const Header = () => {
                     <img src="../assets/icons/phone-icon.svg"alt="" />
                     <div>
                       <p>24/7 Delivery</p>
-                      <a href="+918881042340"><b>+91 888 104 2340</b></a>
+                      <a href="tel:+918881042340"><b>+91 888 104 2340</b></a>
                     </div>
                   </div>
-                  <div className={styles.favorites}>
+                  <Link to='/favorites' className={styles.favorites}>
                     <img src="../assets/icons/favorite-icon.svg" alt="" />
-                  </div>
-                  <div className={styles.cart}>
+                  </Link>
+                  <Link to='/cart' className={styles.cart}>
                     <img src="../assets/icons/cart-icon.svg" alt="" />
                     <span>2</span>
-                  </div>
-                  <div className={styles.account}>
+                  </Link>
+                  <Link to='/account' className={styles.account}>
                     <img src="../assets/icons/user-icon.svg" alt="" />
                     <div>
                       <p>Hello ,</p>
                       <b>My Account</b>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -116,15 +117,24 @@ const Header = () => {
                 <nav className={styles.navList}>
                   <div className={styles.dropdown}>
                       <span> 
-                        Home 
+                        Pages 
                         <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.arrow}>
                           <path d="M4.88398 5.90234L1.16523 2.18359C0.891797 1.91016 0.891797 1.5 1.16523 1.25391L1.7668 0.625C2.04023 0.378906 2.45039 0.378906 2.69648 0.625L5.32148 3.27734L7.97383 0.625C8.21992 0.378906 8.63008 0.378906 8.90352 0.625L9.50508 1.25391C9.77852 1.5 9.77852 1.91016 9.50508 2.18359L5.78633 5.90234C5.54023 6.14844 5.13008 6.14844 4.88398 5.90234Z" fill="#4A5568"/>
                         </svg>
                       </span>
                       <ul className={styles.dropdownList}>
-                        <li>Favorites</li>
-                        <li>Cart</li>
-                        <li>Account</li>
+                        <Link to='/'>
+                          <li>Home</li>
+                        </Link>
+                        <Link to='/favorites'>
+                          <li>Favorites</li>
+                        </Link>
+                        <Link to='/cart'>
+                          <li>Cart</li>
+                        </Link>
+                        <Link to='/account'>
+                          <li>Account</li>
+                        </Link>
                       </ul>
                   </div>
                   <div className={styles.dropdown}>
@@ -177,20 +187,6 @@ const Header = () => {
                         <li>Blog block</li>
                         <li>Blog authors</li>
                         <li>Blog list</li>
-                      </ul>
-                  </div>
-                  <div className={styles.dropdown}>
-                      <span> 
-                        Pages 
-                        <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.arrow}>
-                          <path d="M4.88398 5.90234L1.16523 2.18359C0.891797 1.91016 0.891797 1.5 1.16523 1.25391L1.7668 0.625C2.04023 0.378906 2.45039 0.378906 2.69648 0.625L5.32148 3.27734L7.97383 0.625C8.21992 0.378906 8.63008 0.378906 8.90352 0.625L9.50508 1.25391C9.77852 1.5 9.77852 1.91016 9.50508 2.18359L5.78633 5.90234C5.54023 6.14844 5.13008 6.14844 4.88398 5.90234Z" fill="#4A5568"/>
-                        </svg>
-                      </span>
-                      <ul className={styles.dropdownList}>
-                        <li>About us</li>
-                        <li>Cart</li>
-                        <li>Favorites</li>
-                        <li>Contact us</li>
                       </ul>
                   </div>
                   <div className={styles.dropdown}>

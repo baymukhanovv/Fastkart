@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import FiltersBar from "./components/FiltersBar/FiltersBar";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import ProductsList from "./components/ProductsList/ProductsList";
+import Homepage from "./pages/Homepage";
+import Favorites from "./pages/Favorites"
+import Account from "./pages/Account"
+import Cart from "./pages/Cart"
+import AppContext from "./context";
 
 function App() {
   const [products, setProducts] = useState([])
@@ -69,30 +73,36 @@ function App() {
   }
 
   return (
-    <div className="App">
-        <Header />
-        <div className="container app-container">
-          <FiltersBar 
-            searchValue={searchValue}
-            getSearchValue={getSearchValue}
-            products={products}
-            filteredByCategories={filteredByCategories}
-            filteredByPreferences={filteredByPreferences}
-            filteredByRating={filteredByRating}
-            filteredByWeights={filteredByWeights}
-            selectedCategories={selectedCategories}
-            setSelectedCategories={setSelectedCategories}
-          />
-          <ProductsList 
-            searchValue={searchValue}
-            products={products}
-            selectedCategories={selectedCategories}
-            selectedPreferences={selectedPreferences}
-            selectedRating={selectedRating}
-            selectedWeights={selectedWeights}
-          />
-        </div>
-    </div>
+    <AppContext.Provider value={{ 
+      searchValue, getSearchValue, products, selectedCategories, selectedPreferences, selectedRating, selectedWeights,
+    }}>
+      <div className="App">
+          <Header />
+          <div className="container app-container">
+            <Routes>
+              <Route path="/" element={
+                <Homepage 
+                  getSearchValue={getSearchValue}
+                  filteredByCategories={filteredByCategories}
+                  filteredByPreferences={filteredByPreferences}
+                  filteredByRating={filteredByRating}
+                  filteredByWeights={filteredByWeights}
+                  setSelectedCategories={setSelectedCategories}
+                />
+              } />
+              <Route path="/favorites" element={
+                <Favorites />
+              } />
+              <Route path="/cart" element={
+                <Cart />
+              } />
+              <Route path="/account" element={
+                <Account />
+              } />
+            </Routes>
+          </div>
+      </div>
+    </AppContext.Provider>
   );
 }
 
