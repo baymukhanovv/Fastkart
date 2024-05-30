@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './QuanityCounter.module.scss'
+import styles from './QuantityCounter.module.scss'
 
-const QuanityCounter = ({minusCount, count, plusCount}) => {
+const QuantityCounter = ({minusCount, count, plusCount}) => {
 
     return (
         <div className={styles.modalCounter}>
@@ -12,4 +12,4 @@ const QuanityCounter = ({minusCount, count, plusCount}) => {
     )
 }
 
-export default QuanityCounter
+export default QuantityCounter

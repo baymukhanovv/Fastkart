@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styles from './CartCard.module.scss'
-import QuanityCounter from '../../UI/QuanityCounter/QuanityCounter'
+import QuantityCounter from '../../UI/QuantityCounter/QuantityCounter'
 import { useCounter } from '../../../hooks/useCounter'
 import { usePrice } from '../../../hooks/usePrice'
 import AppContext from '../../../context'
@@ -42,7 +42,7 @@ const CartCard = (product) => {
                     </div>
                     <div className={styles.quanity}>
                         <p>Quanity</p>
-                        <QuanityCounter
+                        <QuantityCounter
                             count={count}
                             minusCount={minusCount}
                             plusCount={plusCount}

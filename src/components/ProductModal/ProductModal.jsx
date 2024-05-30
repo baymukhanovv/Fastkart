@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Modal from '../UI/Modal/Modal'
 import styles from './ProductModal.module.scss'
 import AppContext from '../../context'
-import QuanityCounter from '../UI/QuanityCounter/QuanityCounter'
+import QuantityCounter from '../UI/QuantityCounter/QuantityCounter'
 import {useCounter} from '../../hooks/useCounter'
 import { usePrice } from '../../hooks/usePrice'
 
@@ -51,7 +51,7 @@ const ProductModal = ({selectedProduct}) => {
                         {productDescription}
                     </div>
                     <div className={styles.modalActions}>
-                        <QuanityCounter 
+                        <QuantityCounter 
                             count={count}
                             plusCount={plusCount}
                             minusCount={minusCount}
