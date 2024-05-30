@@ -4,7 +4,7 @@ import ProductCard from './ProductCard/ProductCard'
 import AppContext from '../../context'
 
 
-const ProductsList = () => {
+const ProductsList = ({isLoading}) => {
     const {products, searchValue, selectedCategories, selectedPreferences, selectedRating, selectedWeights} = useContext(AppContext)
 
     const filteredProducts = searchValue || selectedCategories 
@@ -18,20 +18,14 @@ const ProductsList = () => {
 
     return (
         <div className={styles.productsList}>
-            <div className='container'>
-                <div className={styles.wrapper}>
-                    {filteredProducts.map(product => (
-                        <ProductCard 
-                            key={product.id}
-                            productName={product.productName}
-                            productCategory={product.productCategory}
-                            productRating={product.productRating}
-                            productWeight={product.productWeight}
-                            productPriceWithDiscount={product.productPriceWithDiscount}
-                            productPriceWithoutDiscount={product.productPriceWithoutDiscount}
-                        />
-                    ))}
-                </div>
+            <div className={styles.wrapper}>
+                {(isLoading ? [...Array(8)] : filteredProducts).map((product, i) => (
+                    <ProductCard 
+                        key={product ? product.id : i}
+                        {...product}
+                        isLoading={isLoading}
+                    />
+                ))}
             </div>
         </div>
     )

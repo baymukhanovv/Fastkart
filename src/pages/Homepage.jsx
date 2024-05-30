@@ -8,11 +8,12 @@ const Homepage = ({
     filteredByPreferences,
     filteredByRating,
     filteredByWeights,
-    setSelectedCategories
+    setSelectedCategories,
+    isLoading
 }) => {
 
     return (
-        <>
+        <div className="container homepage-container">
           <FiltersBar 
             getSearchValue={getSearchValue}
             filteredByCategories={filteredByCategories}
@@ -21,8 +22,8 @@ const Homepage = ({
             filteredByWeights={filteredByWeights}
             setSelectedCategories={setSelectedCategories}
           />
-          <ProductsList />
-        </>
+          <ProductsList isLoading={isLoading} />
+        </div>
     )
 }
 

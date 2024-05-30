@@ -1,11 +1,13 @@
 .filtersBar {
     max-width: 306px;
-    padding-right: 27px;
+    padding: 0px 27px 27px 0px;
     border-right: 1px solid #dddddd;
     margin-right: 12px;    
+    max-height: max-content;
+    height: 100%;
     
     .categories,
-    .foogPrefer,
+    .foodPrefer,
     .rating,
     .weight {
         .wrapper {

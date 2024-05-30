@@ -1,0 +1,148 @@
+.favoriteCard {
+    &:not(:last-child) {
+        padding-block: 18px;
+        border-bottom: 1px solid #E3E0E0;
+    }
+
+    &:last-child {
+        padding-top: 18px;
+    }
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .cardContent {
+            display: grid;
+            grid-template-columns: 0.5fr 1fr 0.5fr 0.7fr 0.5fr;
+            gap: 20px;
+
+            .cardImage {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+
+                .modalDiscount {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    padding: 3px 6px;
+                    background-color: rgba(234, 75, 72, .1);
+                    color: #EA4B48;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+
+            .cardInfo {
+                display: flex;
+                flex-direction: column;
+
+                .cardName {
+                    font-size: 15px;
+                }
+
+                .cardCategory, .cardWeight {
+                    color: #222222;
+                    font-weight: 600;
+
+                    span {
+                        font-weight: 400;
+                        color: #4A5568;
+                    }
+                }
+            }
+
+            .cardInfo, .cardPrice,
+            .cardStatus, .actions {
+                p:first-child {
+                    font-size: 16px;
+                    color: #4A5568;
+                    font-weight: 500;
+                    margin-bottom: 12px;
+                }
+            }
+
+            .cardPrice {
+                .priceWithDiscount, .priceWithoutDiscount {
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+                
+                .priceWithDiscount {
+                    color: #212529;
+                    margin-right: 5px;
+                }
+
+                .priceWithoutDiscount {
+                    text-decoration: line-through;
+                    color: #4A5568;
+                }
+
+                .save {
+                    margin-top: 5px;
+                    color: #0DA487;
+                    font-weight: 600;
+                }
+            }
+
+            .cardStatus {
+                .modalInStock {
+                    padding: 6px 14px;
+                    border-radius: 4px;
+                    font-size: 15px;
+                    display: inline-block;
+    
+                    &.has {
+                        color: #2C742F;
+                        background-color: #20b5253d;
+                    }
+    
+                    &.hasnot {
+                        background-color: rgba(234, 75, 72, .1);
+                        color: #EA4B48;
+                    }
+                }
+            }
+
+            .actions {
+                
+                .buttons {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+
+                    .addBtn, .favoriteBtn {
+                        padding: 10px;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .addBtn {
+                        background-color: #00B207;
+                        transition: .24s;
+        
+                        &:hover {
+                            background-color: darken(#00B207, 8);
+                        }
+                    }
+    
+                    .favoriteBtn {
+                        background-color: transparent;
+                        border: 1px solid #E6E6E6;
+                    }
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.navList {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    @media (max-width: 1047px) {
+        order: 2;
+        margin-inline: auto;
+    }
+
+    .dropdownList {
+        li:hover {
+            background-color: #ECECEC;
+        }
+    }
+}

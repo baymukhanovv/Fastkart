@@ -1,0 +1,40 @@
+
+
+.selectLocation {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    padding: 7px;
+    border-radius: 4px;
+    border: 1px solid #ECECEC !important;
+
+    .dropdownList {
+        top: 30px;
+        left: unset;
+        right: 10px;
+        width: 80%;
+        background-color: #0DA487;
+        color: #fff;
+        border: 0;
+
+        li:hover {
+            background-color: darken(#0DA487, 10) !important;
+        }
+    }
+
+    span {
+        color: #0DA487;
+        font-weight: 600;
+    }
+
+    .locationButton {
+        padding: 5px;
+        background-color: #F3F5F9;
+        border-radius: 4px;
+
+        svg {
+            display: flex;
+            align-items: center;
+        }
+    }
+}

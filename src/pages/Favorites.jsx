@@ -1,8 +1,15 @@
 import React from 'react'
+import FavoriteList from '../components/FavoriteList/FavoriteList'
 
-const Favorites = () => {
+const Favorites = ({favorites}) => {
+
     return (
-        <div>Favorites</div>
+        <div className="favorites">
+            <div className="container">
+                <h1>My Favorites</h1>
+                <FavoriteList favorites={favorites} />
+            </div>
+        </div>
     )
 }
 
