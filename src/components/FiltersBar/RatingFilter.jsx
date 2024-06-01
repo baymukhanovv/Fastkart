@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './FiltersBar.module.scss'
+import AppContext from '../../context'
 
-const RatingFilter = ({filteredByRating}) => {
+const RatingFilter = () => {
+    const {setSelectedRating, selectedRating, filterBy} = useContext(AppContext)
 
     return (
         <div className={styles.rating}>
@@ -17,7 +19,7 @@ const RatingFilter = ({filteredByRating}) => {
                 {[5, 4, 3, 2, 1].map(rating => (
                 <div className={styles.checkbox} key={rating}>
                     <input
-                    onChange={() => filteredByRating(rating)}
+                    onChange={() => filterBy(setSelectedRating, selectedRating, rating)}
                     type="checkbox"
                     className={styles.checkboxInput}
                     />

@@ -3,8 +3,8 @@ import styles from './FiltersBar.module.scss'
 import CheckboxGroup from './CheckboxGroup'
 import AppContext from '../../context'
 
-const PreferencesFilter = ({products, filteredByPreferences}) => {
-    const {selectedPreferences} = useContext(AppContext)
+const PreferencesFilter = ({products}) => {
+    const {selectedPreferences, setSelectedPreferences} = useContext(AppContext)
 
     return (
         <div className={styles.foodPrefer}>
@@ -19,9 +19,9 @@ const PreferencesFilter = ({products, filteredByPreferences}) => {
             <CheckboxGroup
                 categories={['Vegetarian', 'Non Vegetarian']}
                 selectedCategories={selectedPreferences}
+                setSelectedCategories={setSelectedPreferences}
                 products={products}
                 filterBy='productPreference'
-                filteredByCategories={filteredByPreferences}
             />
         </div>
     )

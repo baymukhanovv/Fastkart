@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './FiltersBar.module.scss'
 import CheckboxGroup from './CheckboxGroup'
 import SearchBar from './SearchBar'
+import AppContext from '../../context'
 
 const CategoryFilter = ({
     getSearchValue,
     searchValue,
-    selectedCategories,
-    products,
-    filteredByCategories
+    products
 }) => {
+    const {selectedCategories, setSelectedCategories} = useContext(AppContext)
+
     return (
         <div className={styles.categories}>
             <div className={styles.wrapper}>
@@ -28,7 +29,7 @@ const CategoryFilter = ({
                 <CheckboxGroup
                     categories={['Vegetable', 'Cookies', 'Snacks', 'Bread']}
                     selectedCategories={selectedCategories}
-                    filteredByCategories={filteredByCategories}
+                    setSelectedCategories={setSelectedCategories}
                     products={products}
                     filterBy="productCategory"
                 />

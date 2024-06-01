@@ -1,50 +1,47 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
 import Homepage from "./pages/Homepage";
 import Favorites from "./pages/Favorites"
 import Account from "./pages/Account"
 import Cart from "./pages/Cart"
 import AppContext from "./context";
-import AboutUs from "./pages/AboutUs";
 import ProductModal from "./components/ProductModal/ProductModal";
+import { useFetching } from "./hooks/useFetching";
+import Layout from "./layout/Layout";
 
 const DATA_URL = "http://localhost:3001";
 const PRODUCTS_URL = `${DATA_URL}/products`;
 const CART_URL = `${DATA_URL}/cart`;
 const FAVORITES_URL = `${DATA_URL}/favorites`;
-// const PURCHASES_URL = `${DATA_URL}/purchases`;
+const ORDERS_URL = `${DATA_URL}/orders`;
 
 function App() {
   const [products, setProducts] = useState([])
   const [favorites, setFavorites] = useState([])
   const [cartItems, setCartItems] = useState([])
+  const [orders, setOrders] = useState([])
   const [searchValue, setSearchValue] = useState('')
   const [selectedCategories, setSelectedCategories] = useState([])
   const [selectedPreferences, setSelectedPreferences] = useState([])
   const [selectedRating, setSelectedRating] = useState([])
   const [selectedWeights, setSelectedWeights] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+
+  const [fetchDatas, isLoading] = useFetching(async () => {
+    const {data: dataProducts} = await axios.get(PRODUCTS_URL)
+    const {data: dataFavorites} = await axios.get(FAVORITES_URL)
+    const {data: dataCartProducts} = await axios.get(CART_URL)
+    const {data: dataOrders} = await axios.get(ORDERS_URL)
+    setOrders(dataOrders)
+    setCartItems(dataCartProducts)
+    setFavorites(dataFavorites)
+    setProducts(dataProducts)
+  })
 
   const [modalActive, setModalActive] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState(null)
 
   useEffect(() => {
-    async function fetchDatas() {
-        try {
-          // I used the json-server for saving datas
-          const {data: dataProducts} = await axios.get(PRODUCTS_URL)
-          const {data: dataFavorites} = await axios.get(FAVORITES_URL)
-          const {data: dataCartProducts} = await axios.get(CART_URL)
-          setIsLoading(false)
-          setCartItems(dataCartProducts)
-          setFavorites(dataFavorites)
-          setProducts(dataProducts)
-        } catch (error) {
-          alert('error')
-        }
-      }
       fetchDatas()
   }, [])
 
@@ -52,22 +49,12 @@ function App() {
     setSearchValue(e.target.value)
   }
 
-  function filteredByCategories(category) {
-    setSelectedCategories(prev => {
-      if(selectedCategories.includes(category)) {
-        return prev.filter(val => val !== category)
+  function filterBy(setter, selectedArray, value) {
+    setter(prev => {
+      if(selectedArray.includes(value)) {
+        return prev.filter(val => val !== value)
       } else {
-        return [...prev, category]
-      }
-    })
-  }
-
-  function filteredByPreferences(preference) {
-    setSelectedPreferences(prev => {
-      if(selectedPreferences.includes(preference)) {
-        return prev.filter(val => val !== preference)
-      } else {
-        return [...prev, preference]
+        return [...prev, value]
       }
     })
   }
@@ -80,16 +67,6 @@ function App() {
         return [...prev, weight]
       }
     }) 
-  }
-
-  function filteredByRating(rating) {
-    setSelectedRating(prev => {
-      if(selectedRating.includes(rating)) {
-        return prev.filter(val => val !== rating)
-      } else {
-        return [...prev, rating]
-      }
-    })
   }
 
   function addToFavorites(productInfo) {
@@ -123,7 +100,7 @@ function App() {
               setCartItems(prev => prev.map(item => Number(item.id) === Number(productInfo.id) ? updatedProduct : item))
             })
             .catch(error => {
-              console.error('Product isn\'t updated')
+              console.error('Product isn\'t updated', error)
             })
         } else {
           const newProduct = {...productInfo, productQuanity: quanityAdd}
@@ -132,7 +109,7 @@ function App() {
               setCartItems(prev => [...prev, newProduct])
             })
             .catch(error => {
-              console.error('Product isn\'t added to Cart')
+              console.error('Product isn\'t added to Cart', error)
             })
         }
       } catch (error) {
@@ -154,41 +131,61 @@ function App() {
     }
   }
 
+  async function addProductsToOrders(couponSum, totalSum) {
+    try {
+      const {data} = await axios.get(ORDERS_URL)
+      const {data: productsFromCart} = await axios.get(CART_URL)
+      for(let i = 0; i < productsFromCart.length; i++) {
+        await axios.delete(`${CART_URL}/${productsFromCart[i].id}`)
+      }
+      fetchDatas()
+      const newOrder = {
+        id: data.length + 1,
+        couponSum,
+        totalSum,
+        products: {...productsFromCart}
+      }
+      await axios.post(ORDERS_URL, newOrder)
+      setOrders(prev => [...prev, newOrder])
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
-    <AppContext.Provider value={{ setSelectedProduct, removeProductFromCart,
-      searchValue, getSearchValue, products, selectedCategories, selectedPreferences, selectedRating, selectedWeights,addToFavorites, productIsFavorite, addToCart, setModalActive, modalActive
+    <AppContext.Provider value={{ 
+      setSelectedProduct, removeProductFromCart,addProductsToOrders,
+      searchValue, getSearchValue, products, selectedCategories, selectedPreferences, 
+      selectedRating, selectedWeights,addToFavorites, productIsFavorite, addToCart, setModalActive,
+      modalActive, filterBy, setSelectedCategories, setSelectedPreferences, setSelectedRating
     }}>
-      <div className="App">
-          <Header favorites={favorites} cartItems={cartItems} />
+      <div>
           <Routes>
             <Route path="/" element={
-              <Homepage 
-                getSearchValue={getSearchValue}
-                filteredByCategories={filteredByCategories}
-                filteredByPreferences={filteredByPreferences}
-                filteredByRating={filteredByRating}
-                filteredByWeights={filteredByWeights}
-                setSelectedCategories={setSelectedCategories}
-                isLoading={isLoading}
-              />
-            } />
-            <Route path="/favorites" element={
-              <Favorites 
-                favorites={favorites}
-                isLoading={isLoading} 
-              />
-            } />
-            <Route path="/cart" element={
-              <Cart 
+              <Layout
                 cartItems={cartItems}
+                favorites={favorites}
               />
-            } />
-            <Route path="/account" element={
-              <Account />
-            } />
-            <Route path="/about us" element={
-              <AboutUs />
-            } />
+            }>
+              <Route index element={
+                <Homepage 
+                  getSearchValue={getSearchValue}
+                  filteredByWeights={filteredByWeights}
+                  setSelectedCategories={setSelectedCategories}
+                  isLoading={isLoading}
+                />
+              } />
+              <Route path="favorites" element={
+                <Favorites 
+                  favorites={favorites}
+                  isLoading={isLoading} 
+                />
+              } />
+              <Route path="cart" element={<Cart cartItems={cartItems} />}/>
+              <Route path="account" element={
+                <Account />
+              } />
+            </Route>
           </Routes>
           {modalActive && <ProductModal selectedProduct={selectedProduct}></ProductModal>}
       </div>

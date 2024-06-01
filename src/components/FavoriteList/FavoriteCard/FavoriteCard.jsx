@@ -12,7 +12,6 @@ const FavoriteCard = (product) => {
         productPrice,
         productName
     } = product
-    console.log(product)
     const {priceWithDiscount} = usePrice(productPrice, productDiscount)
     const {addToFavorites, productIsFavorite, addToCart} = useContext(AppContext)
 
@@ -22,7 +21,7 @@ const FavoriteCard = (product) => {
             <div className={styles.cardContent}>
                     <div className={styles.cardImage}>
                     <span className={styles.modalDiscount}>{productDiscount}% Off</span>
-                        <img src={`../../../assets/products/${productName}.png`} width={75} height={50} alt="" />
+                        <img src={`../../../assets/products/${productName}.png`} width={95} height={70} alt="" />
                     </div>
                     <div className={styles.cardInfo}>
                         <p>Product</p>

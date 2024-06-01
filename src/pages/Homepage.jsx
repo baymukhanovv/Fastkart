@@ -4,21 +4,15 @@ import ProductsList from '../components/ProductsList/ProductsList'
 
 const Homepage = ({
     getSearchValue,
-    filteredByCategories,
-    filteredByPreferences,
-    filteredByRating,
     filteredByWeights,
     setSelectedCategories,
     isLoading
 }) => {
 
     return (
-        <div className="container homepage-container">
+        <div className="homepage-container">
           <FiltersBar 
             getSearchValue={getSearchValue}
-            filteredByCategories={filteredByCategories}
-            filteredByPreferences={filteredByPreferences}
-            filteredByRating={filteredByRating}
             filteredByWeights={filteredByWeights}
             setSelectedCategories={setSelectedCategories}
           />

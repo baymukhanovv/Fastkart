@@ -207,9 +207,104 @@
       "productReview": 54,
       "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
       "productInStock": true
+    },
+    {
+      "id": "17",
+      "productName": "Fresh Bread and Pastry Flour",
+      "productCategory": "Vegetable",
+      "productRating": 4,
+      "productWeight": 200,
+      "productDiscount": 25,
+      "productPrice": 15.15,
+      "productPreference": "Vegetarian",
+      "productReview": 4,
+      "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+      "productInStock": true
+    },
+    {
+      "id": "18",
+      "productName": "Peanut Butter Bite Premium Butter Cookies",
+      "productCategory": "Cookies",
+      "productRating": 2,
+      "productWeight": 350,
+      "productDiscount": 45,
+      "productPrice": 10.36,
+      "productPreference": "Vegetarian",
+      "productReview": 2,
+      "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+      "productInStock": true
+    },
+    {
+      "id": "19",
+      "productName": "SnackAmor Combo Pack of Jowar Stick and Jowar Chips",
+      "productCategory": "Snacks",
+      "productRating": 5,
+      "productWeight": 570,
+      "productDiscount": 65,
+      "productPrice": 13.62,
+      "productPreference": "Vegetarian",
+      "productReview": 9,
+      "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+      "productInStock": false
+    },
+    {
+      "id": "20",
+      "productName": "Yumitos Chilli Sprinkled Potato Chips",
+      "productCategory": "Snacks",
+      "productRating": 1,
+      "productWeight": 100,
+      "productDiscount": 5,
+      "productPrice": 12.36,
+      "productPreference": "Vegetarian",
+      "productReview": 21,
+      "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+      "productInStock": true
     }
   ],
-  "favorites": [],
+  "favorites": [
+    {
+      "id": "1",
+      "productName": "Fresh Bread and Pastry Flour",
+      "productCategory": "Vegetable",
+      "productRating": 4,
+      "productWeight": 200,
+      "productDiscount": 25,
+      "productPrice": 15.15,
+      "productPreference": "Vegetarian",
+      "productReview": 4,
+      "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+      "productInStock": true,
+      "isLoading": false
+    },
+    {
+      "id": "2",
+      "productName": "Peanut Butter Bite Premium Butter Cookies",
+      "productCategory": "Cookies",
+      "productRating": 2,
+      "productWeight": 350,
+      "productDiscount": 45,
+      "productPrice": 10.36,
+      "productPreference": "Vegetarian",
+      "productReview": 2,
+      "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+      "productInStock": true,
+      "isLoading": false
+    },
+    {
+      "id": "3",
+      "productName": "SnackAmor Combo Pack of Jowar Stick and Jowar Chips",
+      "productCategory": "Snacks",
+      "productRating": 5,
+      "productWeight": 570,
+      "productDiscount": 65,
+      "productPrice": 13.62,
+      "productPreference": "Vegetarian",
+      "productReview": 9,
+      "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+      "productInStock": false,
+      "isLoading": false
+    }
+  ],
   "cart": [],
-  "purchases": []
+  "orders": []
 }

@@ -1,5 +1,9 @@
 export const usePrice = (productPrice, productDiscount) => {
-    const priceWithDiscount = (productPrice - (productPrice * (productDiscount / 100))).toFixed(2)
+    const calculatePriceWithDiscount = (productPrice, productDiscount) => {
+        return (productPrice - (productPrice * (productDiscount / 100))).toFixed(2)
+    }
 
-    return {priceWithDiscount, productPrice, productDiscount}
+    const priceWithDiscount = calculatePriceWithDiscount(productPrice, productDiscount)
+
+    return {priceWithDiscount, productPrice, productDiscount, calculatePriceWithDiscount}
 }

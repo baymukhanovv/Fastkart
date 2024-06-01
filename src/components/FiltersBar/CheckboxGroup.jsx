@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './FiltersBar.module.scss'
+import AppContext from '../../context'
 
-const CheckboxGroup = ({categories, selectedCategories, filteredByCategories, products, filterBy}) => {
+const CheckboxGroup = ({categories, selectedCategories,setSelectedCategories, products, filterBy}) => {
+    const {filterBy: filter} = useContext(AppContext)
+
     return (
         <div className={styles.checkboxes}>
             {categories.map(category => (
                 <div className={styles.checkbox} key={category}>
                     <input
                         checked={selectedCategories.includes(category)}
-                        onChange={() => filteredByCategories(category)}
+                        onChange={() => filter(setSelectedCategories, selectedCategories, category)}
                         type="checkbox"
                         className={styles.checkboxInput}
                     />

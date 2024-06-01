@@ -11,9 +11,6 @@ import WeightFilter from './WeightFilter'
 const FiltersBar = ({
     getSearchValue,  
     setSelectedCategories,
-    filteredByCategories,
-    filteredByPreferences,
-    filteredByRating,
     filteredByWeights
 }) => {
     
@@ -24,23 +21,16 @@ const FiltersBar = ({
             <FiltersHeader setSelectedCategories={setSelectedCategories} />
             <SelectedCategories 
                 selectedCategories={selectedCategories}  
-                filteredByCategories={filteredByCategories}
             />
             <CategoryFilter 
-                filteredByCategories={filteredByCategories}
                 products={products}
-                selectedCategories={selectedCategories}
                 getSearchValue={getSearchValue}
                 searchValue={searchValue}
             />
             <PreferencesFilter 
                 products={products}
-                filteredByPreferences={filteredByPreferences}
             />
-            <RatingFilter 
-                products={products}
-                filteredByRating={filteredByRating}
-            />
+            <RatingFilter />
             <WeightFilter 
                 products={products}
                 filteredByWeights={filteredByWeights}

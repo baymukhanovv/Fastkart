@@ -24,6 +24,11 @@ const ProductModal = ({selectedProduct}) => {
     const {count, minusCount, plusCount} = useCounter(productInStock, 0, null)
     const {priceWithDiscount} = usePrice(productPrice, productDiscount)
 
+    function additionToCart() {
+        count !== 0 && addToCart(selectedProduct, count)
+        setModalActive(false)
+    }
+
     return (
         <Modal>
             <div className={styles.modalWrapper}>
@@ -56,7 +61,7 @@ const ProductModal = ({selectedProduct}) => {
                             plusCount={plusCount}
                             minusCount={minusCount}
                         />
-                        <button className={styles.addBtn} onClick={() => count !== 0 && addToCart(selectedProduct, count)}>Add To Cart</button>
+                        <button className={styles.addBtn} onClick={additionToCart}>Add To Cart</button>
                         <button onClick={() => addToFavorites(selectedProduct)} className={styles.favoriteBtn}>
                             <img width={30} height={30} src={`../../../../assets/icons/${productIsFavorite(id) ? 'is-favorite' : 'favorite-icon'}.svg`} alt="" />
                         </button>

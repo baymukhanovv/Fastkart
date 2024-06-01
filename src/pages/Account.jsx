@@ -3,9 +3,7 @@ import React from 'react'
 const Account = () => {
     return (
         <div className="account">
-            <div className="container">
-                My Account
-            </div>
+            <h1>My Account</h1>
         </div>
     )
 }

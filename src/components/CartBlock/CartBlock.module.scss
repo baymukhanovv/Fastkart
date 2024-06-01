@@ -35,9 +35,9 @@
                     border-radius: 4px;
                     border: 3px solid #0DA487;
                     display: flex;
+                    justify-content: space-between;
 
                     input {
-                        flex-grow: 1;
                         background-color: transparent;
                         padding: 13px 10px;
 
@@ -46,11 +46,17 @@
                         }
                     }
 
+                    span {
+                        align-self: center;
+                        padding-inline: 5px;
+                        cursor: pointer;
+                    }
+
                     button {
                         background-color: #0DA487;
                         color: #fff;
                         font-weight: 600;
-                        padding-inline: 30px;
+                        padding-inline: 13px;
                         cursor: pointer;
                     }
                 }
