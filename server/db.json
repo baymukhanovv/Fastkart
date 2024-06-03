@@ -303,8 +303,312 @@
       "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
       "productInStock": false,
       "isLoading": false
+    },
+    {
+      "id": "6",
+      "productName": "Sandwich With Chicken",
+      "productCategory": "Bread",
+      "productRating": 3,
+      "productWeight": 1000,
+      "productDiscount": 30,
+      "productPrice": 14.69,
+      "productPreference": "Non Vegetarian",
+      "productReview": 8,
+      "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+      "productInStock": true,
+      "isLoading": false
+    },
+    {
+      "id": "5",
+      "productName": "Fantasy Crunchy Choco Chip Cookies",
+      "productCategory": "Cookies",
+      "productRating": 4,
+      "productWeight": 550,
+      "productDiscount": 10,
+      "productPrice": 16.57,
+      "productPreference": "Vegetarian",
+      "productReview": 11,
+      "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+      "productInStock": false,
+      "isLoading": false
     }
   ],
   "cart": [],
-  "orders": []
+  "orders": [
+    {
+      "id": "1",
+      "couponSum": 0,
+      "totalSum": 139.12,
+      "products": [
+        {
+          "id": "1",
+          "productName": "Fresh Bread and Pastry Flour",
+          "productCategory": "Vegetable",
+          "productRating": 4,
+          "productWeight": 200,
+          "productDiscount": 25,
+          "productPrice": 15.15,
+          "productPreference": "Vegetarian",
+          "productReview": 4,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 3
+        },
+        {
+          "id": "2",
+          "productName": "Peanut Butter Bite Premium Butter Cookies",
+          "productCategory": "Cookies",
+          "productRating": 2,
+          "productWeight": 350,
+          "productDiscount": 45,
+          "productPrice": 10.36,
+          "productPreference": "Vegetarian",
+          "productReview": 2,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 4
+        },
+        {
+          "id": "6",
+          "productName": "Sandwich With Chicken",
+          "productCategory": "Bread",
+          "productRating": 3,
+          "productWeight": 1000,
+          "productDiscount": 30,
+          "productPrice": 14.69,
+          "productPreference": "Non Vegetarian",
+          "productReview": 8,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 8
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "couponSum": 13.8,
+      "totalSum": 185.32,
+      "products": [
+        {
+          "id": "1",
+          "productName": "Fresh Bread and Pastry Flour",
+          "productCategory": "Vegetable",
+          "productRating": 4,
+          "productWeight": 200,
+          "productDiscount": 25,
+          "productPrice": 15.15,
+          "productPreference": "Vegetarian",
+          "productReview": 4,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 3
+        },
+        {
+          "id": "2",
+          "productName": "Peanut Butter Bite Premium Butter Cookies",
+          "productCategory": "Cookies",
+          "productRating": 2,
+          "productWeight": 350,
+          "productDiscount": 45,
+          "productPrice": 10.36,
+          "productPreference": "Vegetarian",
+          "productReview": 2,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 3
+        },
+        {
+          "id": "6",
+          "productName": "Sandwich With Chicken",
+          "productCategory": "Bread",
+          "productRating": 3,
+          "productWeight": 1000,
+          "productDiscount": 30,
+          "productPrice": 14.69,
+          "productPreference": "Non Vegetarian",
+          "productReview": 8,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 2
+        },
+        {
+          "id": "7",
+          "productName": "Fresh Bread and Pastry Flour",
+          "productCategory": "Vegetable",
+          "productRating": 4,
+          "productWeight": 200,
+          "productDiscount": 15,
+          "productPrice": 15.15,
+          "productPreference": "Vegetarian",
+          "productReview": 15,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 2
+        },
+        {
+          "id": "9",
+          "productName": "Fresh Bread and Pastry Flour",
+          "productCategory": "Bread",
+          "productRating": 2,
+          "productWeight": 670,
+          "productDiscount": 35,
+          "productPrice": 15.15,
+          "productPreference": "Non Vegetarian",
+          "productReview": 25,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 3
+        },
+        {
+          "id": "11",
+          "productName": "SnackAmor Combo Pack of Jowar Stick and Jowar Chips",
+          "productCategory": "Snacks",
+          "productRating": 1,
+          "productWeight": 340,
+          "productDiscount": 5,
+          "productPrice": 17.99,
+          "productPreference": "Vegetarian",
+          "productReview": 6,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 3
+        },
+        {
+          "id": "14",
+          "productName": "Sandwich With Chicken",
+          "productCategory": "Bread",
+          "productRating": 3,
+          "productWeight": 800,
+          "productDiscount": 15,
+          "productPrice": 12.24,
+          "productPreference": "Non Vegetarian",
+          "productReview": 36,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "couponSum": 6.9,
+      "totalSum": 108.2,
+      "products": [
+        {
+          "id": "1",
+          "productName": "Fresh Bread and Pastry Flour",
+          "productCategory": "Vegetable",
+          "productRating": 4,
+          "productWeight": 200,
+          "productDiscount": 25,
+          "productPrice": 15.15,
+          "productPreference": "Vegetarian",
+          "productReview": 4,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 5
+        },
+        {
+          "id": "6",
+          "productName": "Sandwich With Chicken",
+          "productCategory": "Bread",
+          "productRating": 3,
+          "productWeight": 1000,
+          "productDiscount": 30,
+          "productPrice": 14.69,
+          "productPreference": "Non Vegetarian",
+          "productReview": 8,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 5
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "couponSum": 0,
+      "totalSum": 97.96,
+      "products": [
+        {
+          "id": "2",
+          "productName": "Peanut Butter Bite Premium Butter Cookies",
+          "productCategory": "Cookies",
+          "productRating": 2,
+          "productWeight": 350,
+          "productDiscount": 45,
+          "productPrice": 10.36,
+          "productPreference": "Vegetarian",
+          "productReview": 2,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 2
+        },
+        {
+          "id": "1",
+          "productName": "Fresh Bread and Pastry Flour",
+          "productCategory": "Vegetable",
+          "productRating": 4,
+          "productWeight": 200,
+          "productDiscount": 25,
+          "productPrice": 15.15,
+          "productPreference": "Vegetarian",
+          "productReview": 4,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 4
+        },
+        {
+          "id": "6",
+          "productName": "Sandwich With Chicken",
+          "productCategory": "Bread",
+          "productRating": 3,
+          "productWeight": 1000,
+          "productDiscount": 30,
+          "productPrice": 14.69,
+          "productPreference": "Non Vegetarian",
+          "productReview": 8,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 4
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "couponSum": 0,
+      "totalSum": 71.96,
+      "products": [
+        {
+          "id": "6",
+          "productName": "Sandwich With Chicken",
+          "productCategory": "Bread",
+          "productRating": 3,
+          "productWeight": 1000,
+          "productDiscount": 30,
+          "productPrice": 14.69,
+          "productPreference": "Non Vegetarian",
+          "productReview": 8,
+          "productDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab necessitatibus illum optio nemo cum architecto tenetur non molestias rem culpa eius placeat numquam ex, laborum natus, quos id eveniet autem. Eligendi, quos ad! Exercitationem sit illum architecto qui, a modi",
+          "productInStock": true,
+          "isLoading": false,
+          "productQuantity": 7
+        }
+      ]
+    }
+  ]
 }

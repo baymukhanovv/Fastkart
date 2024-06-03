@@ -1,10 +1,9 @@
 import React from 'react'
+import Profile from '../components/Profile/Profile'
 
 const Account = () => {
     return (
-        <div className="account">
-            <h1>My Account</h1>
-        </div>
+        <Profile />
     )
 }
 

@@ -20,9 +20,9 @@ const CartBlock = ({cartItems, setOrderIsPlaced}) => {
 
     useEffect(() => {
         const totalSum = cartItems.reduce((a, b) => {
-            return a + b.productQuanity * calculatePriceWithDiscount(b.productPrice, b.productDiscount)
+            return a + b.productQuantity * calculatePriceWithDiscount(b.productPrice, b.productDiscount)
         }, 0)
-        setTotalSumOfProducts(totalSum)
+        setTotalSumOfProducts(+totalSum.toFixed(2))
     }, [cartItems])
 
     function getCouponName(e) {
@@ -65,7 +65,7 @@ const CartBlock = ({cartItems, setOrderIsPlaced}) => {
                     </div>
                     <div className={styles.subtotal}>
                         <span>Subtotal:</span>
-                        <span>${totalSumOfProducts.toFixed(2)}</span>
+                        <span>${totalSumOfProducts}</span>
                     </div>
                     <div className={styles.couponDiscount}>
                         <span>Coupon Discount:</span>

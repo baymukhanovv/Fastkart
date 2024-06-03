@@ -1,0 +1,11 @@
+.orderPage {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+
+    .orderCards {
+        background-color: #F8F8F8;
+        padding: 35px 25px;
+        flex-grow: 1;
+    }
+}

@@ -3,12 +3,14 @@ import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Favorites from "./pages/Favorites"
-import Account from "./pages/Account"
 import Cart from "./pages/Cart"
 import AppContext from "./context";
 import ProductModal from "./components/ProductModal/ProductModal";
 import { useFetching } from "./hooks/useFetching";
 import Layout from "./layout/Layout";
+import Account from './pages/Account';
+import Order from "./pages/Order";
+import OrderById from "./pages/OrderById";
 
 const DATA_URL = "http://localhost:3001";
 const PRODUCTS_URL = `${DATA_URL}/products`;
@@ -92,8 +94,8 @@ function App() {
       try {
         const existingProduct = cartItems.find(product => Number(product.id) === Number(productInfo.id))
         if(existingProduct) {
-          const updatedDescreasedProduct = {...productInfo, productQuanity: existingProduct.productQuanity > 1 ? existingProduct.productQuanity - quanityAdd : 1 }
-          const updatedIncreasedProduct = {...productInfo, productQuanity: existingProduct.productQuanity + quanityAdd}
+          const updatedDescreasedProduct = {...productInfo, productQuantity: existingProduct.productQuantity > 1 ? existingProduct.productQuantity - quanityAdd : 1 }
+          const updatedIncreasedProduct = {...productInfo, productQuantity: existingProduct.productQuantity + quanityAdd}
           const updatedProduct = (operator === '+') ? updatedIncreasedProduct : updatedDescreasedProduct
           axios.put(`${CART_URL}/${productInfo.id}`, updatedProduct)
             .then(() => {
@@ -103,7 +105,7 @@ function App() {
               console.error('Product isn\'t updated', error)
             })
         } else {
-          const newProduct = {...productInfo, productQuanity: quanityAdd}
+          const newProduct = {...productInfo, productQuantity: quanityAdd}
           axios.post(CART_URL, newProduct)
             .then(() => {
               setCartItems(prev => [...prev, newProduct])
@@ -143,7 +145,7 @@ function App() {
         id: data.length + 1,
         couponSum,
         totalSum,
-        products: {...productsFromCart}
+        products: [...productsFromCart]
       }
       await axios.post(ORDERS_URL, newOrder)
       setOrders(prev => [...prev, newOrder])
@@ -157,7 +159,8 @@ function App() {
       setSelectedProduct, removeProductFromCart,addProductsToOrders,
       searchValue, getSearchValue, products, selectedCategories, selectedPreferences, 
       selectedRating, selectedWeights,addToFavorites, productIsFavorite, addToCart, setModalActive,
-      modalActive, filterBy, setSelectedCategories, setSelectedPreferences, setSelectedRating
+      modalActive, filterBy, setSelectedCategories, setSelectedPreferences, setSelectedRating,
+      favorites, orders
     }}>
       <div>
           <Routes>
@@ -182,9 +185,9 @@ function App() {
                 />
               } />
               <Route path="cart" element={<Cart cartItems={cartItems} />}/>
-              <Route path="account" element={
-                <Account />
-              } />
+              <Route path="account" element={<Account />} />
+              <Route path="orders" element={<Order />}/>
+              <Route path="orders/:id" element={<OrderById />}/>
             </Route>
           </Routes>
           {modalActive && <ProductModal selectedProduct={selectedProduct}></ProductModal>}

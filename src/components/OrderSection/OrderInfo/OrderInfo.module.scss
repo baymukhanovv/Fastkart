@@ -1,0 +1,93 @@
+.wrapper {
+    max-width: 382px;
+    width: 100%;
+
+    .orderInfo {
+        background-color: #F8F8F8;
+        height: max-content;
+    
+        .header {
+            padding: 17px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    
+            span {
+                color: #0DA487;
+                font-weight: 500;
+            }
+        }
+    
+        .priceDetails {
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
+            padding: 17px 22px;
+            border-bottom: 1px solid #ececec;
+            border-top: 1px solid #ececec;
+    
+            .subtotal, .couponDiscount,
+            .saving {
+                display: flex;
+                align-items: center;
+    
+                span {
+                    color: #4A5568;
+                    font-size: 15px;
+    
+                    &:first-child {
+                        flex-grow: 1;
+                    }
+                }
+            }
+    
+            .saving {
+                span {
+                    &:last-of-type {
+                        color: #0DA487;
+                    }
+                }
+            }
+    
+            .couponDiscount {
+                span {
+                    &:last-of-type {
+                        color: #FF4F4F;
+                    }
+                }
+            }
+        }
+    
+        .total {
+            display: flex;
+            align-items: center;
+            padding: 17px 22px;
+    
+            span {
+                color: #4A5568;
+                font-size: 20px;
+                font-weight: 700;
+    
+                &:first-child {
+                    flex-grow: 1;
+                }
+            }}
+    }
+    
+    .goBackBtn {
+        width: 100%;
+        margin-top: 18px;
+        background-color: #0DA487;
+        color: #fff;
+        font-weight: 600;
+        font-size: 18px;
+        padding-block: 15px;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken(#0DA487, 6);
+        }
+    }
+}
+

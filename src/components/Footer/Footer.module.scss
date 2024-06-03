@@ -1,0 +1,105 @@
+.footer {
+    margin-top: 50px;
+    background-color: #F8F8F8;
+
+    padding-top: 60px;
+
+    .footerTop {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding-bottom: 60px;
+        border-bottom: 1px dashed #C1C1C1;
+
+        .card {
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+            padding-inline: 20px;
+            font-weight: 500;
+            font-size: 15px;
+
+            &:not(:last-child) {
+                border-right: 1px dashed #C1C1C1;
+            }
+
+            &:nth-child(2), &:nth-child(3) {
+                justify-content: center;
+            }
+
+            &:last-child {
+                justify-content: right;
+            }
+        }
+    }
+
+    .footerMiddle {
+        padding-block: 50px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 40px;
+        color: #4A5568;
+        border-bottom: 1px dashed #C1C1C1;
+
+        .logo {
+            .footerLogo {
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-size: 15px;
+
+                &:first-of-type {
+                    margin-bottom: 30px;
+                }
+
+                &:not(:first-of-type) {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 5px;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+        .col {
+            .title {
+                margin-bottom: 20px;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                row-gap: 15px;
+            }
+        }
+
+        .contact {
+            .title {
+                margin-bottom: 20px;
+            }
+
+            .contactInfo {
+                display: flex;
+                column-gap: 12px;
+                padding-bottom: 23px;
+                border-bottom: 1px dashed #C1C1C1;
+
+                &:last-child {
+                    margin-top: 23px;
+                }
+
+                a {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .footerBottom {
+        padding-block: 20px;
+
+        span {
+            color: #4A5568;
+        }
+    }
+}

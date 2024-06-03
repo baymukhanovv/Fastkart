@@ -1,0 +1,20 @@
+.orderCard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-block: 15px;
+    border-block: 1px solid #DEE2E6;
+    color: #777777;
+    font-weight: 600;
+    font-size: 18px;
+
+    span {
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .link {
+        text-decoration: underline;
+        color: #0DA487;
+        text-align: right;
+    }
+}

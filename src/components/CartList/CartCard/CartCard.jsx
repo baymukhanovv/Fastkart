@@ -8,14 +8,14 @@ import AppContext from '../../../context'
 const CartCard = (product) => {
     const {
         productInStock, 
-        productQuanity, 
+        productQuantity, 
         productDiscount, 
         productPrice,
         productWeight,
         productCategory,
         productName
     } = product
-    const {count, plusCount, minusCount} = useCounter(productInStock, productQuanity, product)
+    const {count, plusCount, minusCount} = useCounter(productInStock, productQuantity, product)
     const {priceWithDiscount} = usePrice(productPrice, productDiscount)
     const {removeProductFromCart} = useContext(AppContext)
     

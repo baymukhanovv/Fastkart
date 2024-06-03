@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react'
 import AppContext from '../context'
 
-export const useCounter = (productInStock, productQuanity, product) => {
-    const [count, setCount] = useState(productQuanity)
+export const useCounter = (productInStock, productQuantity, product) => {
+    const [count, setCount] = useState(productQuantity)
     const {addToCart} = useContext(AppContext)
 
     function minusCount() {
